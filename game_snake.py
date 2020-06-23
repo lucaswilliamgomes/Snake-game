@@ -1,5 +1,6 @@
 import pygame
 from random import randint
+from time import sleep
 
 pygame.init()
 
@@ -70,27 +71,31 @@ while screen_open:
     #CONTROLERS
     comand = pygame.key.get_pressed()
     if comand[pygame.K_UP]:
-        direction = UP
-    if comand[pygame.K_DOWN]:
-        direction = DOWN
-    if comand[pygame.K_LEFT]:
-        direction = LEFT
-    if comand[pygame.K_RIGHT]:
-        direction = RIGTH
+        if direction == DOWN: pass
+        else:
+            direction = UP
+    elif comand[pygame.K_DOWN]:
+        if direction == UP: pass
+        else:
+            direction = DOWN
+    elif comand[pygame.K_LEFT]:
+        if direction == RIGTH: pass
+        else:
+            direction = LEFT
+    elif comand[pygame.K_RIGHT]:
+        if direction == LEFT: pass
+        else:
+            direction = RIGTH
 
     #MOVE
     if direction == UP:
         snake[0] = snake[0][0], snake[0][1] - 10
-
     elif direction == DOWN:
         snake[0] = snake[0][0], snake[0][1] + 10
-
     elif direction == LEFT:
         snake[0] = snake[0][0] - 10, snake[0][1]
-
     elif direction == RIGTH:
         snake[0] = snake[0][0] + 10, snake[0][1]
-
     for pos in range(len(snake)-1, 0, -1):
         snake[pos] = snake[pos-1][0], snake[pos-1][1]
 
@@ -105,10 +110,16 @@ while screen_open:
     if snake[0][0]  == 40 or snake[0][0] == 350 or snake [0][1] == 60 or snake[0][1] == 350:
         screen.blit(game_over, over_dimens)
         direction = None
+        screen_open = False
 
     #COLISION (SNAKE-SNAKE)
-
+    for x in range(len(snake)):
+        if snake[0] in snake[2:]:
+            if not direction == None:
+                screen.blit(game_over, over_dimens)
+                screen_open = False
 
     pygame.display.update()
 
+sleep(2)
 pygame.quit()
