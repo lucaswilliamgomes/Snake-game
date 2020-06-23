@@ -37,27 +37,31 @@ apple_skin.fill(color_red)
 
 fps = pygame.time.Clock()
 
-#Add text points
-font = pygame.font.Font('freesansbold.ttf', 15)
-text = font.render(f'Points: {points}', True, color_white)
-text_rect = text.get_rect()
-text_rect.center = (200, 30)
+
 
 screen_open = True
 while screen_open:
     fps.tick(speed)
     screen.blit(background, (0, 0))
-    screen.blit(text, text_rect)
+
     functions.walls(screen)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             screen_open = False
 
-    #SHOW_SNAKE
+    # Add text points
+    font = pygame.font.Font('freesansbold.ttf', 15)
+    text = font.render(f'Points: {points}', True, color_white)
+    text_rect = text.get_rect()
+    text_rect.center = (200, 30)
+    screen.blit(text, text_rect)
+
+    #SHOW SNAKE
     for position in snake:
         screen.blit(snake_skin, position)
 
+    #SHOW APPLE
     screen.blit(apple_skin, apple)
 
     #CONTROLERS
@@ -87,11 +91,12 @@ while screen_open:
     for pos in range(len(snake)-1, 0, -1):
         snake[pos] = snake[pos-1][0], snake[pos-1][1]
 
+    #COLISION(SNAKE-APPLE)
     if snake[0] == apple:
         snake.append((snake[-1][0] - 10, snake[-1][1]))
         speed += 0.5
-        screen.
-
+        apple = (randint(45, 355) // 10 * 10, randint(65, 355) // 10 * 10)
+        points += 10
 
 
     pygame.display.update()
