@@ -7,10 +7,13 @@
 # <p align="center">SNAKE</p>
 
 ### <p align="center">Bibliotecas usadas</p>
+<div align="center">
+
 > Pygame <br>
 > Randon <br>
 > Time <br>
 
+</div>
 <br>
 <p align="center">
 <img src="readme/snake.PNG" width="300">
