@@ -1,12 +1,12 @@
 <div style="text-align:center" >
-<img src="readme/logo.ico" align="center">
+<img src="readme/logo.ico">
 
-# <p align="center">SNAKE</p>
+# SNAKE
 
 ### Bibliotecas usadas
 > Pygame <br>
 > Randon <br>
 > Time <br>
 
-<img align="center" src="readme/snake.PNG" width="300">
+<img src="readme/snake.PNG" width="300">
 </div>
