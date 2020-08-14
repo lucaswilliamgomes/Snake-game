@@ -1,4 +1,4 @@
-
+<div style="text-align:center" >
 <img src="readme/logo.ico" align="center">
 
 # <p align="center">SNAKE</p>
@@ -8,4 +8,5 @@
 > Randon <br>
 > Time <br>
 
-<img src="readme/snake.png" align="center" width="300">
+<img align="center" src="readme/snake.PNG" width="300">
+</div>
